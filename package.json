@@ -1,0 +1,56 @@
+{
+  "name": "babel-preprocess",
+  "version": "1.1.0",
+  "description": "This is a Babel plugin that adds preprocessor directives to Javascript.",
+  "author": "Jakob Navrozidis <jakob@navrozidis.com>",
+  "main": "lib/index.js",
+  "dependencies": {
+    "@babel/cli": "^7.15.5",
+    "@babel/preset-env": "^7.15.5",
+    "@babel/template": "^7.15.5",
+    "@babel/types": "^7.15.5"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.15.5",
+    "mocha": "^10.0.0"
+  },
+  "scripts": {
+    "clean": "rm -rf lib",
+    "build": "babel src -d lib",
+    "test": "mocha --require @babel/register",
+    "test:debug": "mocha --compilers js:babel-register --inspect-brk",
+    "test:watch": "npm run test -- --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navro/babel-preprocess.git"
+  },
+  "bugs": {
+    "url": "https://github.com/navro/babel-preprocess/issues"
+  },
+  "homepage": "https://github.com/navro/babel-preprocess#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "license": "MIT",
+  "files": [
+    "lib/"
+  ]
+}
